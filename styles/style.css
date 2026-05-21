@@ -16,6 +16,9 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1,
@@ -48,4 +51,290 @@ ol {
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
   background-color: #D9D9D9;
+}
+
+/* ===================================================
+   ЛЕЙАУТ
+   =================================================== 
+*/
+
+.content {
+  display: grid;
+  grid-template-areas: "result details";
+  grid-template-columns: 711px 1fr;
+  column-gap: 30px;
+  align-items: end;
+  inline-size: 1140px;
+}
+
+.result {
+  grid-area: result;
+}
+
+.content__details {
+  grid-area: details;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.search-form {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 40px;
+}
+
+.search-form__fieldset {
+  flex-grow: 1;
+  border: none;
+}
+
+.content__list-container {
+  block-size: 298px;
+  overflow-y: scroll;
+  position: relative;
+}
+
+/* ===================================================
+   РАЗМЕРЫ
+   =================================================== 
+*/
+
+.result__video-container {
+  inline-size: 100%;
+  block-size: 386px;
+  margin-block-end: 30px;
+  position: relative;
+}
+
+.result__video {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+.content__list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.content__video-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.content__video-card-thumbnail {
+  inline-size: 194px;
+  block-size: 103px;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: center;
+}
+
+.content__video-card-description-container {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+/* ===================================================
+   СТИЛИ ТЕКСТОВ
+   =================================================== 
+*/
+
+.search-form__fieldset-title {
+  font-size: 18px;
+  font-weight: 400;
+  margin-block-end: 5px;
+}
+
+.title {
+  font-family: Oswald, sans-serif;
+  font-size: 75px;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 0.9;
+  color: #fff;
+}
+
+.content__accent {
+  color: #545050;
+}
+
+.content__card-link {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.content__video-card-title {
+  font-family: Oswald, sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content__video-card-description {
+  font-size: 18px;
+  line-height: 16.2px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+/* ===================================================
+   СТИЛИЗАЦИЯ ФОРМ
+   =================================================== 
+*/
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  gap: 15px;
+}
+
+.search-form__label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
+}
+
+.search-form__textfield {
+  inline-size: 100%;
+  border: none;
+  border-block-start: 1px solid #fff;
+  border-block-end: 1px solid #fff;
+  color: #fff;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  background-color: transparent;
+  appearance: none;
+  outline: none;
+  padding-block: 3px;
+}
+
+.search-form__textfield::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-form__pseudo-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  inline-size: 19px;
+  block-size: 19px;
+  border: 1px solid #fff;
+  flex-shrink: 0;
+}
+
+.search-form__pseudo-checkbox::after {
+  content: '';
+  display: none;
+  inline-size: 15px;
+  block-size: 15px;
+  background-color: #fff;
+}
+
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
+  display: block;
+}
+
+.search-form__label:hover .search-form__label-text {
+  text-decoration: underline;
+}
+
+/* ===================================================
+   СТИЛИЗАЦИЯ КНОПОК
+   =================================================== 
+*/
+
+.button {
+  border: 1px solid #fff;
+  color: #fff;
+  font-family: 'Fira Sans Condensed', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 2px;
+}
+
+.button:hover {
+  text-decoration: underline;
+}
+
+.button:active {
+  color: #545050;
+}
+
+.search-form__submit-button {
+  align-self: flex-end;
+  inline-size: 194px;
+  block-size: 34px;
+}
+
+.more-button {
+  inline-size: 100%;
+  block-size: 34px;
+  margin-block-start: 30px;
+  display: block;
+}
+
+/* ===================================================
+   СОСТОЯНИЯ КАРТОЧЕК
+   =================================================== 
+*/
+
+.content__list-item {
+  padding-inline: 3px;
+}
+
+.content__card-link_current {
+  background-color: #545050;
+}
+
+.content__card-link:hover {
+  text-decoration: underline;
+}
+
+.content__card-link:focus {
+  outline: none;
+}
+
+.content__card-link:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
